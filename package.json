@@ -1,0 +1,21 @@
+{
+    "name": "dream_space_web",
+    "version": "1.0.0",
+    "description": "Web side for e-commerce market of furniture",
+    "private": true,
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/InnoDreamSpace/dream_space_web.git"
+    },
+    "keywords": [
+      "e-commerce",
+      "furniture",
+      "3D"
+    ],
+    "contributors": ["guvictory", "danielatonge"],
+    "license": "MIT License",
+    "bugs": {
+      "url": "https://github.com/InnoDreamSpace/dream_space_web/issues"
+    },
+    "homepage": "https://github.com/InnoDreamSpace/dream_space_web#readme"
+  }
