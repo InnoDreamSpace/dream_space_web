@@ -1,21 +1,68 @@
 {
-    "name": "dream_space_web",
-    "version": "1.0.0",
-    "description": "Web side for e-commerce market of furniture",
-    "private": true,
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/InnoDreamSpace/dream_space_web.git"
-    },
-    "keywords": [
-      "e-commerce",
-      "furniture",
-      "3D"
-    ],
-    "contributors": ["guvictory", "danielatonge"],
-    "license": "MIT License",
-    "bugs": {
-      "url": "https://github.com/InnoDreamSpace/dream_space_web/issues"
-    },
-    "homepage": "https://github.com/InnoDreamSpace/dream_space_web#readme"
-  }
+  "name": "dream_space_web",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Web side for e-commerce market of furniture",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InnoDreamSpace/dream_space_web.git"
+  },
+  "keywords": [
+    "e-commerce",
+    "furniture",
+    "3D"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.4",
+    "@reduxjs/toolkit": "^1.9.0",
+    "@types/react-router-dom": "^5.3.3",
+    "formik": "^2.2.9",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
+    "react": "^18.2.0",
+    "react-device-detect": "^2.2.2",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.4.3",
+    "sort-by": "^0.0.2",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "@vitejs/plugin-react": "^2.2.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss": "^8.4.18",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.2.3",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3"
+  },
+  "contributors": [
+    "guvictory",
+    "danielatonge"
+  ],
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/InnoDreamSpace/dream_space_web/issues"
+  },
+  "homepage": "https://github.com/InnoDreamSpace/dream_space_web#readme"
+}
