@@ -4,7 +4,7 @@ import { Login } from '../pages/Login';
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/dream_space_web/',
     element: <Root />,
     errorElement: <Error />,
     children: [
