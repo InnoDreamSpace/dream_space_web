@@ -1,17 +1,40 @@
-name: Github Page Deploy Workflow
+name: Deploy GH Pages
 
 on:
   push:
-    branches: [main]
+    branches: main
+    paths-ignore:
+      - 'docs/**'
+
+  pull_request:
+    branches: main
+    paths-ignore:
+      - 'docs/**'
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
         with:
-          node-version: '16.x'
-      - run: npm ci
-      - run: npm run predeploy
-      - run: npm run deploy
+          persist-credentials: false
+
+      - name: Install 🔧
+        run: npm ci
+
+      - name: Lint 🧐
+        run: npm run lint
+
+      - name: Build 🏗️
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Deploy to GH Pages 🚀
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
