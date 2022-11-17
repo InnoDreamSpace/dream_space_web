@@ -1,21 +1,27 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Root, Error, Register } from '../pages';
-import { Login } from '../pages/Login';
+import { Root, Error, Register, Login, Products } from '../pages';
 
-export const router = createBrowserRouter([
-  {
-    path: '/dream_space_web/',
-    element: <Root />,
-    errorElement: <Error />,
-    children: [
-      {
-        path: 'register',
-        element: <Register />,
-      },
-      {
-        path: 'login',
-        element: <Login />,
-      },
-    ],
-  },
-]);
+export const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <Root />,
+      errorElement: <Error />,
+      children: [
+        {
+          path: '',
+          element: <Products />,
+        },
+        {
+          path: 'register',
+          element: <Register />,
+        },
+        {
+          path: 'login',
+          element: <Login />,
+        },
+      ],
+    },
+  ],
+  { basename: '/dream_space_web/' },
+);

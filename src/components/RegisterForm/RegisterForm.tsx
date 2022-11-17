@@ -88,8 +88,8 @@ export const RegisterForm = memo(({ onSubmit }: RegisterFormProps) => {
 
               <div className='flex w-full justify-center mb-6'>
                 <div className='text-sm'>
-                  <Link to={'/login'} className='font-medium hover:text-indigo-500'>
-                    Already have an account? Login
+                  <Link to={'/login'} className='font-medium hover:text-brown-600'>
+                    Already have an account? <span>Login</span>
                   </Link>
                 </div>
               </div>
@@ -98,7 +98,7 @@ export const RegisterForm = memo(({ onSubmit }: RegisterFormProps) => {
                 <div className='w-full px-3 mb-8'>
                   <button
                     type='submit'
-                    className='block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold'
+                    className='block w-full max-w-xs mx-auto bg-brown-700 hover:bg-brown-800 focus:bg-brown-600 text-white rounded-lg px-3 py-3 font-semibold'
                   >
                     REGISTER NOW
                   </button>

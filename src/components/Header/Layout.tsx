@@ -13,10 +13,10 @@ type LayoutProps = HeaderProps & {
 
 export const Layout = memo(({ pages, setOpen }: LayoutProps) => {
   return (
-    <div className='bg-white'>
+    <div className='bg-white max-sm:fixed w-full'>
       <header className='relative bg-white'>
         <nav aria-label='Top' className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-          <div className='border-b border-gray-200'>
+          <div className='border-b border-gray-200 max-sm:border-none'>
             <div className='flex h-16 items-center'>
               <button
                 type='button'
@@ -28,7 +28,7 @@ export const Layout = memo(({ pages, setOpen }: LayoutProps) => {
               </button>
 
               {/* Logo */}
-              <div className='ml-4 flex lg:ml-0 max-sm:hidden max-md:hidden max-lg:hidden'>
+              <div className='ml-4 flex lg:ml-0 mb-8hidden max-md:hidden max-lg:hidden'>
                 <Logo />
               </div>
 
@@ -65,7 +65,7 @@ export const Layout = memo(({ pages, setOpen }: LayoutProps) => {
                 </div>
 
                 {/* Favorite */}
-                <div className='ml-4 flow-root lg:ml-6'>
+                <div className='ml-4 flow-root lg:ml-6 max-sm:hidden'>
                   <Link to={'favorite'} className='group -m-2 flex items-center p-2'>
                     <MdOutlineFavorite
                       className='h-6 w-6 flex-shrink-0 text-red-400 group-hover:text-gray-500'

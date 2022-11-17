@@ -4,14 +4,8 @@ import { Link } from 'react-router-dom';
 export const Logo = memo(() => {
   return (
     <Link to=''>
-      <span>Dream Space Logo</span>
-      {/* <span className='sr-only'>Dream Space Logo</span>*/}
-      {/* TODO: Add Logo Here
-                        <img
-                          className='h-8 w-auto'
-                          src=''
-                          alt=''
-                      />*/}
+      <span className='sr-only'>Dream Space Logo</span>
+      <img className='h-8 w-auto' src='/src/assets/images/Logo.png' alt='Dream Space' />
     </Link>
   );
 });

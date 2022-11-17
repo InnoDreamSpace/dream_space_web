@@ -66,7 +66,7 @@ export const LoginForm = memo(({ onSubmit }: LoginFormProps) => {
               <div className='flex w-full justify-center mb-6'>
                 <div className='text-sm'>
                   <Link to={'/register'} className='font-medium hover:text-indigo-500'>
-                    You do not have an account? Sign up
+                    You do not have an account? <span className='text-brown-700'>Sign up</span>
                   </Link>
                 </div>
               </div>
@@ -75,7 +75,7 @@ export const LoginForm = memo(({ onSubmit }: LoginFormProps) => {
                 <div className='w-full px-3 mb-8'>
                   <button
                     type='submit'
-                    className='block w-full px-3 mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold'
+                    className='block w-full px-3 mx-auto bg-brown-700 hover:bg-brown-800 focus:bg-brown-600 text-white rounded-lg px-3 py-3 font-semibold'
                   >
                     LOG IN
                   </button>
