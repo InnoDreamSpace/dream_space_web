@@ -58,7 +58,12 @@ export const MobileDialog = memo(({ pages, open, setOpen }: MobileDialogProps) =
                     className='flex items-center text-gray-600 hover:text-gray-800'
                   >
                     {page.icon}
-                    <Link key={page.name} to={page.href} className='-m-2 block p-2 font-medium'>
+                    <Link
+                      key={page.name}
+                      to={page.href}
+                      className='-m-2 block p-2 font-medium'
+                      onClick={() => setOpen(false)}
+                    >
                       {page.name}
                     </Link>
                   </div>
@@ -67,12 +72,20 @@ export const MobileDialog = memo(({ pages, open, setOpen }: MobileDialogProps) =
 
               <div className='space-y-6 border-t border-gray-200 py-6 px-4'>
                 <div className='flow-root'>
-                  <Link to={'login'} className='-m-2 block p-2 font-medium text-gray-900'>
+                  <Link
+                    to={'login'}
+                    className='-m-2 block p-2 font-medium text-gray-900'
+                    onClick={() => setOpen(false)}
+                  >
                     Sign in
                   </Link>
                 </div>
                 <div className='flow-root'>
-                  <Link to={'register'} className='-m-2 block p-2 font-medium text-gray-900'>
+                  <Link
+                    to={'register'}
+                    className='-m-2 block p-2 font-medium text-gray-900'
+                    onClick={() => setOpen(false)}
+                  >
                     Create account
                   </Link>
                 </div>
