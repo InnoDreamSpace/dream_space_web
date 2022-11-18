@@ -84,6 +84,7 @@ export const products = [
   },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const productsMap: Record<any, ProductType> = {
   1: {
     id: '1',
