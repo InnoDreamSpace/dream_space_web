@@ -14,11 +14,11 @@ export const Product = () => {
 
   return (
     <main className='flex w-full items-center justify-center flex-col mx-auto max-w-2xl lg:max-w-7xl'>
-      <div className='flex w-full justify-between'>
+      <div className='flex w-full justify-between max-sm:flex-col'>
         <h1 className='mt-6 max-sm:mt-20 self-start text-3xl font-bold tracking-tight text-gray-700 px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
           {title}
         </h1>
-        <h1 className='mt-6 max-sm:mt-20 self-start text-3xl tracking-tight text-gray-700 px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
+        <h1 className='mt-6 max-sm:mt-2 max-sm:mt-20 self-start text-3xl tracking-tight text-gray-700 px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
           by{' '}
           <Link to={`/shop/${shopId}`} className='font-bold text-brown-700'>
             {shopName}

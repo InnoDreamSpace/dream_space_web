@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Root, Error, Register, Login, Products, Shop, Product } from '../pages';
+import { Root, Error, Register, Login, Products, Shop, Product, About, Favorite } from '../pages';
 
 export const router = createBrowserRouter(
   [
@@ -13,12 +13,20 @@ export const router = createBrowserRouter(
           element: <Products />,
         },
         {
+          path: 'about',
+          element: <About />,
+        },
+        {
           path: 'register',
           element: <Register />,
         },
         {
           path: 'login',
           element: <Login />,
+        },
+        {
+          path: 'favorite',
+          element: <Favorite />,
         },
         {
           path: 'shop/:shopId',
