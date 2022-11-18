@@ -1,16 +1,16 @@
 import { productsMap } from '../mocks/products';
-import { shops } from '../mocks/shops';
-import { ProductsList } from '../components/ProductsList';
 import { Link, useParams } from 'react-router-dom';
 
 export const Product = () => {
   const { productId } = useParams();
 
-  if (!productId) {
+  if (!productId || !productsMap?.[productId]) {
     return null;
   }
 
-  const { title, shopId, shopName, images, description, sizes } = productsMap?.[productId];
+  const product = productsMap?.[productId];
+
+  const { title, shopId, shopName, images, description, sizes } = product;
 
   return (
     <main className='flex w-full items-center justify-center flex-col mx-auto max-w-2xl lg:max-w-7xl'>
