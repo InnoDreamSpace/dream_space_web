@@ -20,7 +20,7 @@ export const products = [
     favorite: true,
   },
   {
-    id: '1',
+    id: '3',
     title: 'Common bed',
     shopId: 'shop_2',
     shopName: 'Shop #2',
@@ -30,7 +30,7 @@ export const products = [
     favorite: false,
   },
   {
-    id: '2',
+    id: '4',
     title: 'Vintage Corona typewriter upcycled desk lamp',
     shopId: 'shop_2',
     shopName: 'Shop #2',
@@ -40,7 +40,7 @@ export const products = [
     favorite: true,
   },
   {
-    id: '3',
+    id: '5',
     title: 'Coffee table',
     shopId: 'shop_1',
     shopName: 'Shop #1',
@@ -51,7 +51,7 @@ export const products = [
   },
 
   {
-    id: '1',
+    id: '6',
     title: 'Working table',
     shopId: 'shop_3',
     shopName: 'Shop #3',
@@ -61,7 +61,7 @@ export const products = [
     favorite: false,
   },
   {
-    id: '2',
+    id: '7',
     title: 'Common chair',
     shopId: 'shop_3',
     shopName: 'Shop #3',
@@ -71,7 +71,7 @@ export const products = [
     favorite: true,
   },
   {
-    id: '3',
+    id: '8',
     title: 'Lunch placee',
     shopId: 'shop_3',
     shopName: 'Shop #3',

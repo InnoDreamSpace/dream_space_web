@@ -5,11 +5,11 @@ import { ProductsListItemType } from '../../typings/products';
 
 export type ProductsListItemProps = ProductsListItemType;
 
-export const ProductsListItem = memo(
+export const ShopProductsListItem = memo(
   ({ id, title, shopId, shopName, image, cost, favorite }: ProductsListItemProps) => {
     return (
       <div className='group overflow-hidden'>
-        <Link to={`product/${id}`}>
+        <Link to={`/product/${id}`}>
           <div className='aspect-square w-full overflow-hidden rounded-lg bg-gray-200'>
             <img
               src={image}
@@ -21,15 +21,9 @@ export const ProductsListItem = memo(
 
         <div className='flex max-w-full justify-between items-center'>
           <div className='w-full max-w-[240px] max-m:max-w-[280px]'>
-            <Link to={`product/${id}`}>
+            <Link to={`/product/${id}`}>
               <h3 className='mt-4 text-lg font-semibold text-gray-700 truncate'>{title}</h3>
             </Link>
-            <h4 className='text-sm text-gray-700'>
-              by{' '}
-              <Link to={`shop/${shopId}`} className='mt-4 text-sm text-brown'>
-                {shopName}
-              </Link>
-            </h4>
           </div>
           <>
             <MdOutlineFavorite
@@ -48,4 +42,4 @@ export const ProductsListItem = memo(
   },
 );
 
-ProductsListItem.displayName = 'ProductListItem';
+ShopProductsListItem.displayName = 'ShopProductsListItem';
