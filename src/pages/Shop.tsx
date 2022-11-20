@@ -4,7 +4,7 @@ import { ProductsList } from '../components/ProductsList';
 import { useParams } from 'react-router-dom';
 
 export const Shop = () => {
-  const { shopId } = useParams();
+  const { shopId } = useParams<{ shopId?: string }>();
 
   return (
     <main className='flex w-full items-center justify-center flex-col mx-auto max-w-2xl lg:max-w-7xl'>
