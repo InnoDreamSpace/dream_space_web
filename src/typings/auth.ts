@@ -9,3 +9,14 @@ export type RegisterDataType = {
   email: string;
   password: string;
 };
+
+export type UserData = {
+  id: number;
+  email: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber?: string;
+  telegramAlias?: string;
+  settings?: string;
+  shops?: string[];
+};

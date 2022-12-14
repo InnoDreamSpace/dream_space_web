@@ -11,7 +11,7 @@ type LayoutProps = HeaderProps & {
   setOpen: (value: boolean) => void;
 };
 
-export const Layout = memo(({ pages, setOpen }: LayoutProps) => {
+export const Layout = memo(({ pages, setOpen, user, onLogout }: LayoutProps) => {
   return (
     <div className='bg-white max-sm:fixed w-full'>
       <header className='relative bg-white'>
@@ -49,31 +49,44 @@ export const Layout = memo(({ pages, setOpen }: LayoutProps) => {
 
               <div className='ml-auto flex items-center'>
                 <div className='hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6'>
-                  <Link
-                    to={'login'}
-                    className='text-sm font-medium text-gray-700 hover:text-gray-800'
-                  >
-                    Sign in
-                  </Link>
-                  <span className='h-6 w-px bg-gray-200' aria-hidden='true' />
-                  <Link
-                    to={'register'}
-                    className='text-sm font-medium text-gray-700 hover:text-gray-800'
-                  >
-                    Create account
-                  </Link>
+                  {user === undefined ? (
+                    <>
+                      <Link
+                        to={'login'}
+                        className='text-sm font-medium text-gray-700 hover:text-gray-800'
+                      >
+                        Sign in
+                      </Link>
+                      <span className='h-6 w-px bg-gray-200' aria-hidden='true' />
+                      <Link
+                        to={'register'}
+                        className='text-sm font-medium text-gray-700 hover:text-gray-800'
+                      >
+                        Create account
+                      </Link>
+                    </>
+                  ) : (
+                    <button
+                      onClick={onLogout}
+                      className='text-sm font-medium text-gray-700 hover:text-gray-800'
+                    >
+                      Logout
+                    </button>
+                  )}
                 </div>
 
                 {/* Favorite */}
-                <div className='ml-4 flow-root lg:ml-6 max-sm:hidden'>
-                  <Link to={'favorite'} className='group -m-2 flex items-center p-2'>
-                    <MdOutlineFavorite
-                      className='h-6 w-6 flex-shrink-0 text-red-400 group-hover:text-gray-500'
-                      aria-hidden='true'
-                    />
-                    <span className='sr-only'>favorite items</span>
-                  </Link>
-                </div>
+                {user !== undefined && (
+                  <div className='ml-4 flow-root lg:ml-6 max-sm:hidden'>
+                    <Link to={'favorite'} className='group -m-2 flex items-center p-2'>
+                      <MdOutlineFavorite
+                        className='h-6 w-6 flex-shrink-0 text-red-400 group-hover:text-gray-500'
+                        aria-hidden='true'
+                      />
+                      <span className='sr-only'>favorite items</span>
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>

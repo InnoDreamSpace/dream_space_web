@@ -1,17 +1,22 @@
-import { AiOutlineDropbox, AiOutlineQuestionCircle } from 'react-icons/ai';
+import { AiOutlineDropbox, AiOutlineQuestionCircle, AiOutlineShop } from 'react-icons/ai';
 
 export const navigation = {
   pages: [
     {
-      name: 'Products',
+      name: 'Home',
       href: '',
       icon: <AiOutlineDropbox className='h-6 w-6 flex-shrink-0 mr-2' aria-hidden='true' />,
     },
-    /* {
-      name: 'Stores',
-      href: 'stores',
+    {
+      name: 'Products',
+      href: 'products',
+      icon: <AiOutlineDropbox className='h-6 w-6 flex-shrink-0 mr-2' aria-hidden='true' />,
+    },
+    {
+      name: 'Shops',
+      href: 'shops',
       icon: <AiOutlineShop className='h-6 w-6 flex-shrink-0 mr-2' aria-hidden='true' />,
-    },*/
+    },
     {
       name: 'About',
       href: 'about',
