@@ -2,7 +2,7 @@ import { productsMap } from '../mocks/products';
 import { Link, useParams } from 'react-router-dom';
 
 export const Product = () => {
-  const { productId } = useParams();
+  const { productId } = useParams<{productId?: string}>();
 
   if (!productId || !productsMap?.[productId]) {
     return null;
