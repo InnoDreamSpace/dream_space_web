@@ -10,7 +10,7 @@ type MobileDialogProps = HeaderProps & {
   setOpen: (value: boolean) => void;
 };
 
-export const MobileDialog = memo(({ pages, open, setOpen }: MobileDialogProps) => {
+export const MobileDialog = memo(({ pages, open, setOpen, user, onLogout }: MobileDialogProps) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as='div' className='relative z-40 lg:hidden' onClose={setOpen}>
@@ -71,24 +71,42 @@ export const MobileDialog = memo(({ pages, open, setOpen }: MobileDialogProps) =
               </div>
 
               <div className='space-y-6 border-t border-gray-200 py-6 px-4'>
-                <div className='flow-root'>
-                  <Link
-                    to={'login'}
-                    className='-m-2 block p-2 font-medium text-gray-900'
-                    onClick={() => setOpen(false)}
-                  >
-                    Sign in
-                  </Link>
-                </div>
-                <div className='flow-root'>
-                  <Link
-                    to={'register'}
-                    className='-m-2 block p-2 font-medium text-gray-900'
-                    onClick={() => setOpen(false)}
-                  >
-                    Create account
-                  </Link>
-                </div>
+                {user === undefined ? (
+                  <>
+                    <div className='flow-root'>
+                      <Link
+                        to={'login'}
+                        className='-m-2 block p-2 font-medium text-gray-900'
+                        onClick={() => setOpen(false)}
+                      >
+                        Sign in
+                      </Link>
+                    </div>
+                    <div className='flow-root'>
+                      <Link
+                        to={'register'}
+                        className='-m-2 block p-2 font-medium text-gray-900'
+                        onClick={() => setOpen(false)}
+                      >
+                        Create account
+                      </Link>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className='flow-root'>
+                      <button
+                        className='-m-2 block p-2 font-medium text-gray-900'
+                        onClick={() => {
+                          onLogout?.();
+                          setOpen(false);
+                        }}
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
             </Dialog.Panel>
           </Transition.Child>

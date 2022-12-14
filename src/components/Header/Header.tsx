@@ -1,9 +1,12 @@
 import { ReactElement, useState } from 'react';
 import { MobileDialog } from './MobileDialog';
 import { Layout } from './Layout';
+import { UserData } from '../../typings/auth';
 
 export type HeaderProps = {
   className?: string;
+  user?: UserData;
+  onLogout?: () => void;
   pages?: {
     name: string;
     href: string;

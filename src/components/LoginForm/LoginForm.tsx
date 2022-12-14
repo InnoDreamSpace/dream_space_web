@@ -33,7 +33,6 @@ export const LoginForm = memo(({ onSubmit }: LoginFormProps) => {
             })}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
                 onSubmit({ ...values });
                 setSubmitting(false);
               }, 400);
@@ -65,8 +64,9 @@ export const LoginForm = memo(({ onSubmit }: LoginFormProps) => {
 
               <div className='flex w-full justify-center mb-6'>
                 <div className='text-sm'>
-                  <Link to={'/register'} className='font-medium hover:text-indigo-500'>
-                    You do not have an account? <span className='text-brown-700'>Sign up</span>
+                  <Link to={'/register'} className='font-medium hover:text-brown-600'>
+                    You do not have an account?{' '}
+                    <span className='hover:text-brown-600'>Sign up</span>
                   </Link>
                 </div>
               </div>

@@ -32,11 +32,10 @@ export const RegisterForm = memo(({ onSubmit }: RegisterFormProps) => {
               firstName: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
               lastName: Yup.string().max(20, 'Must be 20 characters or less').required('Required'),
               email: Yup.string().email('Invalid email address').required('Required'),
-              password: Yup.string().min(8, 'Must be 8 characters or more').required(),
+              password: Yup.string().min(4, 'Must be 4 characters or more').required(),
             })}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
                 onSubmit({ ...values });
                 setSubmitting(false);
               }, 400);

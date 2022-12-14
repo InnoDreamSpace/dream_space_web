@@ -13,6 +13,10 @@ export const router = createBrowserRouter(
           element: <Products />,
         },
         {
+          path: 'products',
+          element: <Products />,
+        },
+        {
           path: 'about',
           element: <About />,
         },
