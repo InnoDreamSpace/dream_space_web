@@ -6,7 +6,6 @@ import { useGetUserMutation } from '../services/userApi';
 import { userSelector } from '../store/selectors/userSelectors';
 import { useAppSelector, useAppDispatch } from '../hooks/store';
 import { logout } from '../store/userSlice';
-import Footer from '../components/Footer/Footer';
 
 export const Root = () => {
   const [getUser, getUserRequest] = useGetUserMutation();
@@ -34,7 +33,6 @@ export const Root = () => {
     <>
       <Header {...navigation} user={user} onLogout={handleLogout} />
       <Outlet />
-      <Footer />
     </>
   );
 };

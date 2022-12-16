@@ -32,10 +32,8 @@ export const LoginForm = memo(({ onSubmit }: LoginFormProps) => {
               password: Yup.string().required(),
             })}
             onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                onSubmit({ ...values });
-                setSubmitting(false);
-              }, 400);
+              onSubmit({ ...values });
+              setSubmitting(false);
             }}
           >
             <Form>

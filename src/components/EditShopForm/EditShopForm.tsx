@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { CreateShopDataType } from '../../typings/shop';
 import { FormInput } from '../FormInput';
 import { RiShoppingCartLine } from 'react-icons/ri';
-import { Formik, Form } from 'formik';
+import { Formik, Form, FormikProps } from 'formik';
 import * as Yup from 'yup';
 import { TbFileDescription } from 'react-icons/tb';
 import { GrContact } from 'react-icons/gr';
@@ -10,26 +10,19 @@ import { GrContact } from 'react-icons/gr';
 export type ShopFormProps = {
   initial?: CreateShopDataType;
   onSubmit: (shopData: CreateShopDataType) => void;
+  innerRef?: React.RefObject<FormikProps<CreateShopDataType>>;
 };
 
-export const ShopForm = memo(({ initial, onSubmit }: ShopFormProps) => {
+export const EditShopForm = memo(({ initial, onSubmit, innerRef }: ShopFormProps) => {
   return (
-    <div className='text-gray-500 w-max w-3/4 overflow-hidden max-w-[600px] min-w-[300px]'>
+    <div className='text-gray-500 w-full overflow-hidden min-w-[200px]'>
       <div className='md:flex w-full'>
-        <div className='w-full py-10 px-5 md:px-10'>
-          <div className='text-center mb-10'>
-            <h1 className='mt-6 text-center text-3xl font-bold tracking-tight text-gray-900'>
-              Create Your Shop
-            </h1>
-            <p className='font-medium text-gray-600'>Some awesome text</p>
-          </div>
+        <div className='w-full py-4'>
           <Formik
             initialValues={{
-              name: '',
-              description: '',
-              contact: '',
-              logo: '',
-              ...initial,
+              name: initial?.name ?? '',
+              description: initial?.description ?? '',
+              contact: initial?.contact ?? '',
             }}
             validationSchema={Yup.object({
               name: Yup.string().required('Required'),
@@ -40,8 +33,9 @@ export const ShopForm = memo(({ initial, onSubmit }: ShopFormProps) => {
               onSubmit({ ...values });
               setSubmitting(false);
             }}
+            innerRef={innerRef}
           >
-            {({ setFieldValue }) => (
+            {() => (
               <Form encType='multipart/form-data'>
                 <div className='flex flex-col'>
                   <FormInput
@@ -72,31 +66,6 @@ export const ShopForm = memo(({ initial, onSubmit }: ShopFormProps) => {
                     className='w-full px-3 mb-5'
                     label='Contacts'
                   />
-                  <FormInput
-                    id='shopLogoInput'
-                    name='logo'
-                    type='file'
-                    accept='image/*'
-                    value={undefined}
-                    onChange={(event) => {
-                      console.log(event.currentTarget?.files?.[0]);
-                      setFieldValue('logo', event.currentTarget?.files?.[0]);
-                    }}
-                    icon={<GrContact />}
-                    className='w-full px-3 mb-5'
-                    label='Logo'
-                  />
-                </div>
-
-                <div className='flex'>
-                  <div className='w-full px-3 mb-8'>
-                    <button
-                      type='submit'
-                      className='block w-full max-w-xs mx-auto bg-brown-700 hover:bg-brown-800 focus:bg-brown-600 text-white rounded-lg px-3 py-3 font-semibold'
-                    >
-                      Create
-                    </button>
-                  </div>
                 </div>
               </Form>
             )}
@@ -107,4 +76,4 @@ export const ShopForm = memo(({ initial, onSubmit }: ShopFormProps) => {
   );
 });
 
-ShopForm.displayName = 'ShopForm';
+EditShopForm.displayName = 'EditShopForm';

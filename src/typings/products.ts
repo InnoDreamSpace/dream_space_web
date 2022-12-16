@@ -1,25 +1,49 @@
-export type ProductsListItemType = {
+export type IProductsListItemType = {
   id: string;
-  title: string;
+  name: string;
   shopId: string;
-  shopName: string;
-  image: string;
-  cost: number;
+  shopName?: string;
+
+  shop_id: string;
+  shop_name: string;
+  images: string[];
+  price: number;
+  category: string;
+
   favorite?: boolean;
 };
 
-export type ProductType = {
-  id: string;
-  title: string;
-  description: string;
-  shopId: string;
-  shopName: string;
-  images: string[];
-  cost: number;
+export type ProductsListItemType = Omit<Omit<IProductsListItemType, 'shop_id'>, 'shop_name'> & {
   favorite?: boolean;
-  sizes: {
-    width: string;
-    height: string;
-    weight: string;
-  };
+  shopId: string;
+  shopName?: string;
+};
+
+export type IProductType = {
+  id: string;
+  name: string;
+  description: string;
+
+  shopId: string;
+  shopName?: string;
+  shop_id: string;
+  shop_name?: string;
+
+  images: string[];
+  price: number;
+  category: string;
+
+  width: number;
+  height: number;
+  length: number;
+};
+
+export type ProductType = Omit<Omit<IProductType, 'shop_id'>, 'shop_name'> & {
+  favorite?: boolean;
+  shopId: string;
+  shopName?: string;
+};
+
+export type CreateProductType = Omit<ProductType, 'images'> & {
+  images?: Blob[];
 };
