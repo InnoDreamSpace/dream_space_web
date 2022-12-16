@@ -78,7 +78,7 @@ export const Home = () => {
           </div>
           <div className='container mx-auto flex py-8 items-center justify-center flex-col'>
             <video controls className='max-w-screen-lg w-full object-cover object-center rounded'>
-              <source src='https://youtu.be/KZW5_jMQ1vQ' type='video/mp4' />
+              <source src='https://youtu.be/KZW5_jMQ1vQ' type='video' />
               Your browser does not support the video tag.
             </video>
           </div>
