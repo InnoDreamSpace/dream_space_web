@@ -11,6 +11,7 @@ import {
   Favorite,
   CreateShop,
   Home,
+  Shops,
 } from '../pages';
 
 export const router = createBrowserRouter([
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
       {
         path: 'favorite',
         element: <Favorite />,
+      },
+      {
+        path: 'shops',
+        element: <Shops />,
       },
       {
         path: 'shop/:shopId',

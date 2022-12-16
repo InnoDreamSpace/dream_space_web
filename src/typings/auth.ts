@@ -18,5 +18,9 @@ export type UserData = {
   phoneNumber?: string;
   telegramAlias?: string;
   settings?: string;
-  shops?: string[];
+  shops: {
+    id: string;
+    name: string;
+    logo?: string;
+  }[];
 };

@@ -8,9 +8,10 @@ import * as Yup from 'yup';
 
 export type RegisterFormProps = {
   onSubmit: (registerData: RegisterDataType) => void;
+  subtitle: string;
 };
 
-export const RegisterForm = memo(({ onSubmit }: RegisterFormProps) => {
+export const RegisterForm = memo(({ onSubmit, subtitle }: RegisterFormProps) => {
   return (
     <div className='text-gray-500 w-max overflow-hidden'>
       <div className='md:flex w-full'>
@@ -19,7 +20,7 @@ export const RegisterForm = memo(({ onSubmit }: RegisterFormProps) => {
             <h1 className='mt-6 text-center text-3xl font-bold tracking-tight text-gray-900'>
               REGISTER
             </h1>
-            <p className='font-medium text-gray-600'>Some awesome text</p>
+            <p className='font-medium text-gray-600'>{subtitle}</p>
           </div>
           <Formik
             initialValues={{
@@ -35,10 +36,8 @@ export const RegisterForm = memo(({ onSubmit }: RegisterFormProps) => {
               password: Yup.string().min(4, 'Must be 4 characters or more').required(),
             })}
             onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                onSubmit({ ...values });
-                setSubmitting(false);
-              }, 400);
+              onSubmit({ ...values });
+              setSubmitting(false);
             }}
           >
             <Form>

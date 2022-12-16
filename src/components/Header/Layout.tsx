@@ -13,7 +13,7 @@ type LayoutProps = HeaderProps & {
 
 export const Layout = memo(({ pages, setOpen, user, onLogout }: LayoutProps) => {
   return (
-    <div className='bg-white w-full'>
+    <div className='bg-white w-full sticky top-0 z-100'>
       <header className='relative bg-white'>
         <nav aria-label='Top' className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
           <div className='border-b border-gray-200 max-sm:border-none'>

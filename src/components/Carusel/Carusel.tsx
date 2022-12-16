@@ -31,7 +31,7 @@ const Carusel = () => {
         ></button>
       </div>
       <div className='carousel-inner relative w-full overflow-hidden'>
-        <div className='carousel-item brightness-50 active bg-center bg-cover float-left w-full h-[32rem] lg:h-[36rem] max-sm:h-[24rem] flex items-end bg-[url("https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80")]'></div>
+        <div className='carousel-item active brightness-50 bg-center bg-cover float-left w-full h-[32rem] lg:h-[36rem] max-sm:h-[24rem] flex items-end bg-[url("https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80")]'></div>
         <div className='carousel-item brightness-50 bg-center bg-cover float-left w-full h-[32rem] lg:h-[36rem] max-sm:h-[24rem] flex items-end bg-[url("https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")]'></div>
         <div className='carousel-item brightness-50 bg-center bg-cover float-left w-full h-[32rem] lg:h-[36rem] max-sm:h-[24rem] flex items-end bg-[url("https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80")]'></div>
       </div>
@@ -45,12 +45,20 @@ const Carusel = () => {
           But <span className='text-brown-700'>DreamSpace</span> is here as your best friend for
           interior design.
         </p>
-        <Link
-          to='/products'
-          className='flex w-[180px] mx-auto items-center justify-center flex-shrink-0 text-white bg-brown-700 hover:bg-brown-800 focus:bg-brown-600 text-white rounded-lg px-3 py-3 font-semibold text-md mt-10 sm:mt-0'
-        >
-          <span>Find your furniture</span>
-        </Link>
+        <div className='flex justify-center mx-auto gap-8'>
+          <Link
+            to='/products'
+            className='flex w-[180px] items-center tracking-wide font-semibold justify-center flex-shrink-0 text-white border-2 border-brown-700 hover:bg-brown-600 focus:bg-brown-400 rounded-lg px-3 py-3 text-md mt-10 sm:mt-0'
+          >
+            <span>Find furniture</span>
+          </Link>
+          <Link
+            to='/create-shop'
+            className='flex w-[180px] items-center tracking-wide font-semibold justify-center flex-shrink-0 text-white bg-brown-700 hover:bg-brown-800 focus:bg-brown-600 rounded-lg px-3 py-3  text-md mt-10 sm:mt-0'
+          >
+            <span>Create shop</span>
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { shopApi } from '../services/shopApi';
 import { userApi } from '../services/userApi';
 import { UserData } from '../typings/auth';
 
@@ -31,6 +32,17 @@ export const userSlice = createSlice({
     });
     builder.addMatcher(userApi.endpoints.getUser.matchFulfilled, (state, { payload }) => {
       state.data = payload;
+    });
+    builder.addMatcher(shopApi.endpoints.createShop.matchFulfilled, (state, { payload }) => {
+      if (state.data)
+        state.data.shops = [
+          ...state.data.shops,
+          {
+            id: payload.id,
+            name: payload.name,
+            logo: payload.logo,
+          },
+        ];
     });
   },
 });
