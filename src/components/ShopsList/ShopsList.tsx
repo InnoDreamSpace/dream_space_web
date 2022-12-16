@@ -10,8 +10,8 @@ type ShopsListProps = {
 
 export const ShopsList = ({ items }: ShopsListProps) => {
   return (
-    <section className='text-gray-600 body-font'>
-      <div className='flex mx-auto justify-center flex-wrap w-full gap-4 py-16 px-4 sm:px-6 lg:px-8'>
+    <section className='text-gray-600 w-full body-font'>
+      <div className='flex w-full mx-auto justify-center flex-wrap w-full gap-4 py-16 px-4 sm:px-6 lg:px-8'>
         {items.map((shop) => (
           <Link
             to={`/shop/${shop.id}`}
