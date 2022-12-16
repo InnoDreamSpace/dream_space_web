@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { productApi } from '../services/productApi';
 import { ProductsListItemType, ProductType } from '../typings/products';
 
@@ -14,7 +14,14 @@ const initialState: ProductSliceType = {
 export const productSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    toggleFavorite: (state, action: PayloadAction<{ id: string }>) => {
+      const product = state.products?.find((product) => product.id === action.payload.id);
+      if (product) {
+        product.favorite = !product.favorite;
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder.addMatcher(productApi.endpoints.getProducts.matchFulfilled, (state, { payload }) => {
       state.products = payload.map((item) => ({
@@ -40,4 +47,4 @@ export const productSlice = createSlice({
   },
 });
 
-// export const {} = shopSlice.actions;
+export const { toggleFavorite } = productSlice.actions;

@@ -5,8 +5,8 @@ type ModalProps = {
   body: ReactNode;
   modalId: string;
 
-  onCancle?: () => void;
-  cancleButtonText?: string;
+  onCancel?: () => void;
+  cancelButtonText?: string;
 
   onOk?: () => void;
   okButtonText?: string;
@@ -15,10 +15,10 @@ type ModalProps = {
 const Modal = ({
   title,
   body,
-  onCancle,
+  onCancel,
   onOk,
   modalId,
-  cancleButtonText,
+  cancelButtonText,
   okButtonText,
 }: ModalProps) => {
   return (
@@ -49,9 +49,9 @@ const Modal = ({
               type='button'
               className='flex w-[80px] items-center box-border tracking-wide font-semibold justify-center flex-shrink-0 text-brown-700  hover:text-brown-900 active:text-brown-700 rounded-lg px-3 py-2 text-sm'
               data-bs-dismiss='modal'
-              onClick={onCancle}
+              onClick={onCancel}
             >
-              {cancleButtonText ? cancleButtonText : 'Cancle'}
+              {cancelButtonText ? cancelButtonText : 'Cancel'}
             </button>
             <button
               type='button'

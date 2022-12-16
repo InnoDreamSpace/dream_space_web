@@ -2,11 +2,31 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { MdOutlineFavorite } from 'react-icons/md';
 import { ProductsListItemType } from '../../typings/products';
+import { useAppDispatch, useAppSelector } from '../../hooks/store';
+import { toggleFavorite } from '../../store/productSlice';
+import { useUpdateFavoritesMutation } from '../../services/userApi';
+import { userSelector } from '../../store/selectors/userSelectors';
 
 export type ProductsListItemProps = ProductsListItemType;
 
 export const ShopProductsListItem = memo(
   ({ id, name, images, price, favorite }: ProductsListItemProps) => {
+    const dispatch = useAppDispatch();
+    const user = useAppSelector(userSelector);
+    const [updateFavorite] = useUpdateFavoritesMutation();
+
+    const handleUpdateFavorite = (id: string) => {
+      const oldFavorites = user?.favorites;
+      let currentFavorite: string[];
+      if (oldFavorites?.includes(id)) {
+        currentFavorite = oldFavorites?.filter((f) => f !== id);
+      } else {
+        currentFavorite = [...(oldFavorites as string[]), id];
+      }
+      dispatch(toggleFavorite({ id }));
+      updateFavorite({ productId: id, userId: String(user?.id), favorites: currentFavorite });
+    };
+
     return (
       <div className='group overflow-hidden'>
         <Link to={`/product/${id}`}>
@@ -31,7 +51,7 @@ export const ShopProductsListItem = memo(
                 favorite ? 'text-red-400 hover:text-gray-500' : 'text-gray-500 hover:text-red-400'
               }`}
               aria-hidden='true'
-              onClick={() => console.log('to favorite')}
+              onClick={() => handleUpdateFavorite(id)}
             />
             <span className='sr-only'>favorite items</span>
           </>

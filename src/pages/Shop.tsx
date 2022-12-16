@@ -1,10 +1,10 @@
 import { ProductsList } from '../components/ProductsList';
-import { useParams } from 'react-router-dom';
-import { useEditShopMutation, useGetShopQuery } from '../services/shopApi';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDeleteShopMutation, useEditShopMutation, useGetShopQuery } from '../services/shopApi';
 import { useAppSelector } from '../hooks/store';
 import { userSelector } from '../store/selectors/userSelectors';
 import { useCallback, useMemo, useRef } from 'react';
-import { AiOutlineEdit, AiOutlineAppstoreAdd } from 'react-icons/ai';
+import { AiOutlineEdit, AiOutlineAppstoreAdd, AiOutlineDelete } from 'react-icons/ai';
 import Modal from '../components/Modal/Modal';
 import { EditShopForm } from '../components/EditShopForm';
 import { FormikProps } from 'formik';
@@ -24,8 +24,9 @@ export const Shop = () => {
   const { data: shop, products } = useAppSelector(shopSelector);
   const [editShop] = useEditShopMutation();
   const [createProduct] = useCreateProductMutation();
+  const [deleteShop] = useDeleteShopMutation();
   const user = useAppSelector(userSelector);
-
+  const navigate = useNavigate();
   const editFormRef = useRef<FormikProps<CreateShopDataType>>(null);
   const createFormRef = useRef<FormikProps<CreateProductType>>(null);
 
@@ -41,6 +42,10 @@ export const Shop = () => {
     },
     [shopId],
   );
+
+  const handleDelete = useCallback(() => {
+    if (shop?.id) deleteShop(Number(shop?.id)).then(() => navigate('/shops'));
+  }, [shop, deleteShop]);
 
   const handleCreateProduct = useCallback(
     (data: CreateProductType) => {
@@ -107,6 +112,12 @@ export const Shop = () => {
                   data-bs-target='#createModal'
                   className='w-6 h-6 text-brown-800 cursor-pointer hover:text-brown-100 active:text-brown-800'
                 />
+                <AiOutlineDelete
+                  aria-label='Delete shop'
+                  data-bs-toggle='modal'
+                  data-bs-target='#deleteModal'
+                  className='w-6 h-6 text-brown-800 cursor-pointer hover:text-brown-100 active:text-brown-800'
+                />
               </div>
             )}
           </div>
@@ -145,6 +156,13 @@ export const Shop = () => {
         title='Add new product'
         onOk={() => createFormRef?.current?.handleSubmit()}
         body={<CreateProductForm onSubmit={handleCreateProduct} innerRef={createFormRef} />}
+      />
+      <Modal
+        modalId='deleteModal'
+        title='Delete shop'
+        okButtonText='Delete'
+        onOk={handleDelete}
+        body={<div>Do you really want to delete your shop?</div>}
       />
     </main>
   );
