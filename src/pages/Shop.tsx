@@ -58,6 +58,7 @@ export const Shop = () => {
       formData.append('length', String(data.length));
       formData.append('width', String(data.width));
       formData.append('height', String(data.height));
+      formData.append('colors', "['#000000']");
 
       if (data.images) {
         for (let i = 0; i < data.images.length; ++i) {
