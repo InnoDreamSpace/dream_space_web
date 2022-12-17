@@ -77,10 +77,13 @@ export const Home = () => {
             </div>
           </div>
           <div className='container mx-auto flex py-8 items-center justify-center flex-col'>
-            <video controls className='max-w-screen-lg w-full object-cover object-center rounded'>
-              <source src='https://youtu.be/KZW5_jMQ1vQ' type='video' />
-              Your browser does not support the video tag.
-            </video>
+            <iframe
+              className='max-w-screen-lg w-full min-h-[400px] max-w-[780px] object-cover object-center rounded'
+              src='https://www.youtube.com/embed/KZW5_jMQ1vQ'
+              title='Dream Space'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
       </section>

@@ -18,8 +18,8 @@ import { CreateProductType } from '../typings/products';
 export const Shop = () => {
   const { shopId } = useParams<{ shopId?: string }>();
 
-  useGetShopQuery(Number(shopId));
-  useGetShopProductsQuery(Number(shopId));
+  useGetShopQuery(Number(shopId), { refetchOnMountOrArgChange: true });
+  useGetShopProductsQuery(Number(shopId), { refetchOnMountOrArgChange: true });
 
   const { data: shop, products } = useAppSelector(shopSelector);
   const [editShop] = useEditShopMutation();

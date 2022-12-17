@@ -1,4 +1,3 @@
-import { products } from '../mocks/products';
 import { ProductsList } from '../components/ProductsList';
 
 export const Favorite = () => {
@@ -8,10 +7,10 @@ export const Favorite = () => {
         Favorite
       </h1>
       <div className='flex w-full justify-center'>
-        <ProductsList
+        {/** <ProductsList
           items={products.filter((product) => product.favorite)}
           className='py-8 px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8'
-        />
+  />*/}
       </div>
     </main>
   );

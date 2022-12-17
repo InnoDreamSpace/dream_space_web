@@ -13,7 +13,7 @@ type MobileDialogProps = HeaderProps & {
 export const MobileDialog = memo(({ pages, open, setOpen, user, onLogout }: MobileDialogProps) => {
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as='div' className='relative z-40 lg:hidden' onClose={setOpen}>
+      <Dialog as='div' className='relative z-50 lg:hidden' onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter='transition-opacity ease-linear duration-300'
