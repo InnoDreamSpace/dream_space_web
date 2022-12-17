@@ -23,8 +23,14 @@ export const shopApi = commonApi.injectEndpoints({
         body: data,
       }),
     }),
+    deleteShop: builder.mutation<ShopData, number>({
+      query: (shopId) => ({
+        url: `shops/${shopId}/`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
 
-export const { useGetShopQuery, useGetShopsQuery, useCreateShopMutation, useEditShopMutation } =
+export const { useGetShopQuery, useGetShopsQuery, useCreateShopMutation, useEditShopMutation, useDeleteShopMutation } =
   shopApi;

@@ -32,7 +32,10 @@ export const RegisterForm = memo(({ onSubmit, subtitle }: RegisterFormProps) => 
             validationSchema={Yup.object({
               firstName: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
               lastName: Yup.string().max(20, 'Must be 20 characters or less').required('Required'),
-              email: Yup.string().email('Invalid email address').required('Required'),
+              email: Yup.string()
+                .max(255, 'Must be 255 characters or less')
+                .email('Invalid email address')
+                .required('Required'),
               password: Yup.string().min(4, 'Must be 4 characters or more').required(),
             })}
             onSubmit={(values, { setSubmitting }) => {

@@ -1,4 +1,10 @@
-import type { LoginDataType, RegisterDataType, UserData } from '../typings/auth';
+import type {
+  FavoriteRequestType,
+  LoginDataType,
+  RegisterDataType,
+  UserData,
+} from '../typings/auth';
+import { ProductType } from '../typings/products';
 import { commonApi } from './commonApi';
 
 export const userApi = commonApi.injectEndpoints({
@@ -31,6 +37,15 @@ export const userApi = commonApi.injectEndpoints({
         },
       }),
     }),
+    updateFavorites: builder.mutation<string, FavoriteRequestType>({
+      query: (favData) => ({
+        url: `users/${favData.userId}/`,
+        method: 'PATCH',
+        body: {
+          favorites: favData.favorites?.map(item => Number(item)),
+        },
+      }),
+    }),
   }),
 });
 
@@ -39,4 +54,5 @@ export const {
   useLoginUserMutation,
   useGetUserMutation,
   useRegisterUserMutation,
+  useUpdateFavoritesMutation,
 } = userApi;

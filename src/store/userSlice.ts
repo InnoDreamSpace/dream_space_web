@@ -44,6 +44,12 @@ export const userSlice = createSlice({
           },
         ];
     });
+    builder.addMatcher(userApi.endpoints.updateFavorites.matchFulfilled, (state, { payload }) => {
+      const rest = payload.slice(payload.indexOf('[') + 1, payload.indexOf(']')).split(', ').map(item => Number(item));
+      console.log(rest);
+
+      if (state.data?.favorites) state.data.favorites = rest ?? [];
+    });
   },
 });
 

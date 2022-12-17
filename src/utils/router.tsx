@@ -60,6 +60,10 @@ export const router = createBrowserRouter([
         path: 'create-shop',
         element: <CreateShop />,
       },
+      {
+        path: 'edit-shop',
+        // element: <EditShop />,
+      },
     ],
   },
 ]);
