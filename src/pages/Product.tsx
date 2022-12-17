@@ -19,7 +19,7 @@ import { FormikProps } from 'formik';
 export const Product = () => {
   const { productId } = useParams<{ productId?: string }>();
   const navigate = useNavigate();
-  useGetProductQuery(Number(productId));
+  useGetProductQuery(Number(productId), { refetchOnMountOrArgChange: true });
 
   const [deleteProduct] = useDeleteProductMutation();
   const [editProduct] = useEditProductMutation();
@@ -30,7 +30,7 @@ export const Product = () => {
   const product = useAppSelector(productSelector);
   const user = useAppSelector(userSelector);
 
-  useGetShopQuery(Number(product?.shopId));
+  useGetShopQuery(Number(product?.shopId), { refetchOnMountOrArgChange: true });
   const { data: shop } = useAppSelector(shopSelector);
 
   const isAdmin = useMemo(() => {
@@ -114,7 +114,12 @@ export const Product = () => {
 
             <p className='leading-relaxed'>{product?.description}</p>
 
-            <div className='flex flex-col mt-6 items-start pb-5 border-b-2 border-gray-100 mb-5'>
+            <div className='mt-4'>
+              <span className='font-semibold text-xl mt-4 mr-2'>Price:</span>
+              {product?.price} RUB
+            </div>
+
+            <div className='flex flex-col items-start pb-5 border-b-2 border-gray-100 mb-5'>
               <span className='font-semibold text-xl mt-4 mb-2'>Properties</span>
               <div className='flex items-center'>
                 <span className='font-bold mr-2'>Width:</span>
@@ -139,7 +144,7 @@ export const Product = () => {
       </div>
       <Modal
         modalId='editModal'
-        title='Edit shop'
+        title='Edit product'
         onOk={() => editFormRef?.current?.handleSubmit()}
         body={
           <CreateProductForm

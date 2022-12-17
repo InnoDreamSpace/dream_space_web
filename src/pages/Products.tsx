@@ -1,8 +1,11 @@
 import { ProductsList } from '../components/ProductsList';
+import { useAppSelector } from '../hooks/store';
 import { useGetProductsQuery } from '../services/productApi';
+import { productsSelector } from '../store/selectors/productSelectors';
 
 export const Products = () => {
-  const { data: products } = useGetProductsQuery();
+  useGetProductsQuery();
+  const products = useAppSelector(productsSelector);
 
   if (products === undefined) {
     return null;

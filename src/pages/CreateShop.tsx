@@ -22,9 +22,13 @@ export const CreateShop = () => {
       if (data.address) formData.append('address', data.address);
       if (data.logo) formData.append('logo', data.logo);
 
-      createShop(formData).then(() => {
-        if (user?.shops.length !== 0) {
-          navigate(`/shop/${user?.shops[user?.shops.length - 1].id}`);
+      createShop(formData).then((result) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        if (result?.data?.id) {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          navigate(`/shop/${result?.data?.id}`);
         }
       });
     },
