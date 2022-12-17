@@ -37,12 +37,12 @@ export const userApi = commonApi.injectEndpoints({
         },
       }),
     }),
-    updateFavorites: builder.mutation<ProductType, FavoriteRequestType>({
+    updateFavorites: builder.mutation<string, FavoriteRequestType>({
       query: (favData) => ({
         url: `users/${favData.userId}/`,
         method: 'PATCH',
         body: {
-          favorites: favData.favorites,
+          favorites: favData.favorites?.map(item => Number(item)),
         },
       }),
     }),

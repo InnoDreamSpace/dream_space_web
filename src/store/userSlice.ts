@@ -20,7 +20,6 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.data = undefined;
     },
-
   },
   extraReducers: (builder) => {
     builder.addMatcher(userApi.endpoints.loginUser.matchFulfilled, (state, { payload }) => {
@@ -44,6 +43,12 @@ export const userSlice = createSlice({
             logo: payload.logo,
           },
         ];
+    });
+    builder.addMatcher(userApi.endpoints.updateFavorites.matchFulfilled, (state, { payload }) => {
+      const rest = payload.slice(payload.indexOf('[') + 1, payload.indexOf(']')).split(', ').map(item => Number(item));
+      console.log(rest);
+
+      if (state.data?.favorites) state.data.favorites = rest ?? [];
     });
   },
 });

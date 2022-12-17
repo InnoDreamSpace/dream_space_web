@@ -23,8 +23,8 @@ export const ProductsListItem = memo(
       } else {
         currentFavorite = [...(oldFavorites as string[]), id];
       }
-      dispatch(toggleFavorite({ id }));
       updateFavorite({ productId: id, userId: String(user?.id), favorites: currentFavorite });
+      dispatch(toggleFavorite({ id }));
     };
     return (
       <div className='group overflow-hidden'>

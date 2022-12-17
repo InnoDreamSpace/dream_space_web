@@ -23,11 +23,11 @@ export type UserData = {
     name: string;
     logo?: string;
   }[];
-  favorites?: string[];
+  favorites?: number[];
 };
 
 export type FavoriteRequestType = {
   userId?: string;
-  favorites?: string[];
+  favorites?: number[];
   productId?: string;
 };

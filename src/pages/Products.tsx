@@ -11,6 +11,7 @@ export const Products = () => {
   const favorites = user?.favorites;
 
   const finalProduct = products?.map((product) => {
+    console.log(favorites);
     if (favorites?.includes(product.id)) {
       return { ...product, favorite: true };
     }
